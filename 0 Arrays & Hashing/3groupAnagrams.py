@@ -12,7 +12,7 @@ class Solution:
             count = [0] * 26 # a-z
 
             for c in s:
-                count[ord(c) - ord("a")] += 1 # subtract ascii value of current char from ascii of a to get position in hashmap
+                count[ord(c) - ord("a")] += 1   # subtract ascii value of current char from ascii of a to get position in hashmap
             
             res[tuple(count)].append(s)
         return res.values()
