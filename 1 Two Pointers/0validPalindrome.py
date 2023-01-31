@@ -1,4 +1,6 @@
 # 125. Valid Palindrome
+# Difficulty: Easy
+# Given a string s, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
 
 s: str = "A man, a plan, a canal: Panama"
 
