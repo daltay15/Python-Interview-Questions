@@ -13,11 +13,12 @@ class Solution:
         count = {}  # Initialize hashmap
         res = 0
         l = 0
+        
         for r in range(len(s)): # Loop the right pointer through range of numbers opening the window
             count[s[r]] = 1 + count.get(s[r], 0)    # Increment count at current position
 
             while (r - l + 1) - max(count.values()) > k:    # While window ! valid - count of most freq character 
-                count[s[1]] -= 1    # Decrement count of character at left positon and decrement by 1
+                count[s[l]] -= 1    # Decrement count of character at left positon and decrement by 1
                 l += 1  # move left pointer right by 1
 
             res = max(res, r - l + 1)   # set res to max of current res and size of window
