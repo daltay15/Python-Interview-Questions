@@ -13,30 +13,30 @@ from typing import Optional
 
 # Definition for a Node.
 class Node:
-    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
-        self.val = int(x)
-        self.next = next
-        self.random = random
+    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None): # Constructor
+        self.val = int(x)   # Value
+        self.next = next    # Next node
+        self.random = random    # Random node
         
-    def __repr__(self):
-        return str(self.val) + " -> " + str(self.next)
+    def __repr__(self):     # For printing
+        return str(self.val) + " -> " + str(self.next)  # Inorder traversal
         
 class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
-        oldToCopy = { None: None }
+        oldToCopy = { None: None }  # Dictionary to store the mapping of old nodes to new nodes
 
-        cur = head
-        while cur:
-            copy = Node(cur.val)
-            oldToCopy[cur] = copy
-            cur = cur.next
+        cur = head  # Current node
+        while cur:  # While current node is not null
+            copy = Node(cur.val)    # Create a new node with the same value
+            oldToCopy[cur] = copy   # Add the mapping to the dictionary
+            cur = cur.next  # Increment the current node
         
-        cur = head
-        while cur:
-            copy = oldToCopy[cur]
-            copy.next = oldToCopy[cur.next]
-            copy.random = oldToCopy[cur.random]
-            cur = cur.next
+        cur = head  # Reset the current node
+        while cur:  # While current node is not null
+            copy = oldToCopy[cur]   # Get the copy of the current node
+            copy.next = oldToCopy[cur.next] # Set the next pointer of the copy to the copy of the next node
+            copy.random = oldToCopy[cur.random] # Set the random pointer of the copy to the copy of the random node
+            cur = cur.next  # Increment the current node
         
         return oldToCopy[head] # Return the head of the copied linked list
 

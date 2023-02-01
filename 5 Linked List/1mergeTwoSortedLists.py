@@ -8,34 +8,34 @@ from typing import Optional
 
 # Definition for singly-linked list.
 class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+    def __init__(self, val=0, next=None):   # Constructor
+        self.val = val  # Value
+        self.next = next    # Next node
 
-    def __repr__(self):
-        return str(self.val) + " -> " + str(self.next)
+    def __repr__(self): # For printing
+        return str(self.val) + " -> " + str(self.next)  # Inorder traversal
 
 
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        temp = ListNode()
-        tail = temp
+        temp = ListNode()   # Create a new list
+        tail = temp # Create a tail pointer
 
-        while list1 and list2:
-            if list1.val < list2.val:
-                tail.next = list1
-                list1 = list1.next
-            else:
-                tail.next = list2
-                list2 = list2.next
-            tail = tail.next
+        while list1 and list2:  # While both lists are not empty
+            if list1.val < list2.val:   # If the value at list1 is smaller than the value at list2
+                tail.next = list1   # Add the value at list1 to the new list
+                list1 = list1.next  # Increment the pointer for list1
+            else:   # If the value at list2 is smaller than the value at list1
+                tail.next = list2   # Add the value at list2 to the new list
+                list2 = list2.next  # Increment the pointer for list2
+            tail = tail.next    # Increment the tail pointer
         
-        if list1:
-            tail.next = list1
-        elif list2:
-            tail.next = list2
+        if list1:   # If list1 is not empty
+            tail.next = list1   # Add the remaining values from list1 to the new list
+        elif list2: # If list2 is not empty
+            tail.next = list2   # Add the remaining values from list2 to the new list
 
-        return temp.next
+        return temp.next    # Return the new list
     
 
 if __name__ == "__main__":
