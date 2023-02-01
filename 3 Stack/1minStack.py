@@ -11,30 +11,30 @@
 # Time Complexity: O(1) for all operations
 # Space Complexity: O(n) for n elements in stack
 
-input = ["MinStack","push","push","push","getMin","pop","top","getMin"]
+input = ["MinStack","push","push","push","getMin","pop","top","getMin"] 
 input = [[],[-2],[0],[-3],[],[],[],[]]
 
 
-class MinStack:
+class MinStack: # MinStack class
     
-    def __init__(self):
-        self.stack = []
-        self.minStack = []
+    def __init__(self): # Constructor
+        self.stack = [] # Stack to store elements
+        self.minStack = []  # Stack to store min element at each point of time
         
-    def push(self, val: int) -> None:
-        self.stack.append(val)
+    def push(self, val: int) -> None:   # Push element to stack
+        self.stack.append(val)  # Append element to stack
         val = min(val, self.minStack[-1] if self.minStack else val) # Take min of val and top of minStack if ! empty else take val
-        self.minStack.append(val)
+        self.minStack.append(val)   # Append min to minStack
 
-    def pop(self) -> None:
-        self.stack.pop()
-        self.minStack.pop()
+    def pop(self) -> None:  # Pop element from stack
+        self.stack.pop()    # Pop element from stack
+        self.minStack.pop() # Pop element from minStack
         
-    def top(self) -> int:
-        return self.stack[-1]
+    def top(self) -> int:   # Get top element of stack
+        return self.stack[-1]   # Return top element of stack
 
-    def getMin(self) -> int:
-        return self.minStack[-1]
+    def getMin(self) -> int:    # Get min element of stack
+        return self.minStack[-1]    # Return top element of minStack
         
 
 
