@@ -7,33 +7,33 @@
 class Solution:
     
     # less memory efficient
-    def isPalindromeEasy(s: str) -> bool:
-        newStr = ""
+    def isPalindromeEasy(s: str) -> bool:   
+        newStr = "" # create new string
 
-        for c in s:
-            if c.isalnum():
-                newStr += c.lower()
+        for c in s: # iterate through string
+            if c.isalnum(): # if alphanumeric
+                newStr += c.lower() # add to new string
         
         return newStr == newStr[::-1] # reverse string
 
 
     # more memory efficient using two pointers
     def isPalindromeHarder(s: str) -> bool:
-        left = 0
-        right = len(s) - 1
+        left = 0    # initialize left pointer
+        right = len(s) - 1  # initialize right pointer
 
-        while left < right:
-            if not s[left].isalnum():
-                left += 1
-            elif not s[right].isalnum():
-                right -= 1
-            elif s[left].lower() != s[right].lower():
-                return False
-            else:
-                left += 1
-                right -= 1
+        while left < right: # while left pointer is less than right pointer
+            if not s[left].isalnum():   # if not alphanumeric
+                left += 1   # increment left pointer
+            elif not s[right].isalnum():    # if not alphanumeric
+                right -= 1  # decrement right pointer
+            elif s[left].lower() != s[right].lower():   # if not equal
+                return False    # return false
+            else:   # if equal
+                left += 1   # increment left pointer
+                right -= 1  # decrement right pointer
         
-        return True
+        return True 
 
 
 
