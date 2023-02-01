@@ -3,28 +3,29 @@
 # Return the indices of the two numbers (1-indexed) as an integer array answer of size 2, where 1 <= answer[0] < answer[1] <= numbers.length.
 # The tests are generated such that there is exactly one solution. You may not use the same element twice.
 
+from typing import List
 
-List = list
-numbers = [2, 7, 11, 15]
-target = 9
 
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        left = 0
-        right = len(numbers) - 1
+        left = 0    # Left pointer
+        right = len(numbers) - 1    # Right pointer
 
-        while left < right:
-            sum = numbers[left] + numbers[right]
-            
-            if sum > target:
-                right -= 1
-            
-            elif sum < target:
-                left += 1
+        while left < right: # While the left pointer is less than the right pointer
+            sum = numbers[left] + numbers[right]    # Get the sum of the left and right pointers
 
-            else:
-                return[left + 1, right + 1]
+            if sum > target:    # If the sum is greater than the target
+                right -= 1  # Move the right pointer left 1
+            
+            elif sum < target:  # If the sum is less than the target
+                left += 1   # Move the left pointer right 1
+
+            else:   # Found the target
+                return[left + 1, right  + 1]    # Return the indices of the left and right pointers
                 
 
 if __name__ == "__main__":
+    List = list
+    numbers = [2, 7, 11, 15]
+    target = 9
     print(Solution().twoSum(numbers, target))
