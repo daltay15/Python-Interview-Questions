@@ -5,13 +5,12 @@
 # If target exists, then return its index, otherwise return -1.
 
 
-List = list
-nums = [-1,0,3,5,9,12]
-target = 9
+List = list # For type hinting
+
 
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        l, r = 0, len(nums) - 1
+        l, r = 0, len(nums) - 1    # Left and right pointers    
 
         while l <= r:
             m = (l + r) // 2        # Midpoint of the list
@@ -21,7 +20,9 @@ class Solution:
                 l = m + 1           # Move left pointer right 1
             else:                   # Found number  
                 return m            # Return the position
-        return -1
+        return -1                   # Not found
 
 if __name__ == "__main__":
+    nums = [-1,0,3,5,9,12]  
+    target = 9  
     print(Solution().search(nums, target))
