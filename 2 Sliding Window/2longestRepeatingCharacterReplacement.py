@@ -3,16 +3,15 @@
 # In one operation, you can choose any character of the string and change it to any other uppercase English character.
 # Find the length of the longest sub-string containing all repeating letters you can get after performing the above operations.
 
-s = "ABAB"
-k = 2
+
 
 
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
         
-        count = {}  # Initialize hashmap
-        res = 0
-        l = 0
+        count = {}  # Create a dictionary to store the count of characters
+        res = 0 # Initialize the result
+        l = 0   # Initialize the left pointer
         
         for r in range(len(s)): # Loop the right pointer through range of numbers opening the window
             count[s[r]] = 1 + count.get(s[r], 0)    # Increment count at current position
@@ -27,4 +26,6 @@ class Solution:
 
 
 if __name__ == "__main__":
+    s = "ABAB"
+    k = 2
     print(Solution().characterReplacement(s, k))
