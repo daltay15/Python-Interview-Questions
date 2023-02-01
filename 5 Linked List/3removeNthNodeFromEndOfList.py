@@ -12,8 +12,9 @@ class ListNode:
         self.val = val
         self.next = next
         
-head = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
-n = 2
+    def __repr__(self):
+        return str(self.val) + " -> " + str(self.next)
+
 
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
@@ -37,4 +38,6 @@ class Solution:
 
 
 if __name__ == "__main__":
+    head = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
+    n = 2
     print(Solution().removeNthFromEnd(head, n))

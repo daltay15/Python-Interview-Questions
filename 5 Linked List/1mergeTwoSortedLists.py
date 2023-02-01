@@ -13,11 +13,7 @@ class ListNode:
         self.next = next
 
     def __repr__(self):
-        return f"ListNode({self.val}, {self.next})"
-
-
-list1 = ListNode(1, ListNode(2, ListNode(4)))
-list2 = ListNode(1, ListNode(3, ListNode(4)))
+        return str(self.val) + " -> " + str(self.next)
 
 
 class Solution:
@@ -43,4 +39,6 @@ class Solution:
     
 
 if __name__ == "__main__":
+    list1 = ListNode(1, ListNode(2, ListNode(4)))
+    list2 = ListNode(1, ListNode(3, ListNode(4)))
     print(Solution().mergeTwoLists(list1, list2))
