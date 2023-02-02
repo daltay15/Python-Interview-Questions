@@ -1,6 +1,0 @@
-    # ll.insert_at_beginning(3)
-    # ll.insert_at_beginning(5)
-    # ll.insert_at_end(8)
-    # ll.insert_at_beginning(6)
-    # ll.print()
-    # print("Length of Linked List: ", ll.get_length())
