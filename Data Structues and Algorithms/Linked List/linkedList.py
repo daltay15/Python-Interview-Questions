@@ -108,6 +108,19 @@ class LinkedList:
                 break
             
             itr = itr.next
+            
+    def reverse_list(self):
+        if self.head is None:
+            return
+        
+        prev = None
+        current = self.head
+        while current:
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
+        self.head = prev
         
     def print(self):
         if self.head is None:   
@@ -156,4 +169,9 @@ if __name__ == "__main__":
     ll.remove_by_value("mango")
     ll.remove_by_value("apple")
     ll.remove_by_value("grapes")
+    ll.print()
+    
+    ll.insert_values([1,2,4,5])
+    ll.print()
+    ll.reverse_list()
     ll.print()
